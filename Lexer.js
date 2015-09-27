@@ -30,19 +30,15 @@ var input = "latex symbol lexer";
   var anyFunc = /\\(?:[a-zA-Z]+|.)/; 
   
   // ---------------- Preprocessor -------------------------- //
-  var mathModeBling= /(\$.*\$)/;
-  var str = 'sadadsaasds$\asdfdaswhen\\\\\dsfadfa,.x,coiowajifeajjiaj$dfsdfdsdsf$dsfsfdsf';
-  var m;
+  //
+  // lex/scan input stream
+  // 
+  var mathModeBling=/(\$[^\$]*\$)/g;
+//  var mathModeBling=/(\$([^\$])*\$)/g;
+//  var mathModeBling=/(\$([^\$])*\$)/;
+//  var str = 'sadadsaasds$\asdfdaswcoiowajifeajjiaj$dfsdfdsdsf$dsfsfdsf';
+  var str = 'dfafdafd$fds3xjae$ssdsadsadsa$$1232134$21312ds$d1232134142';
 
-  if ((m = mathModeBling.exec(str))!== null) {
-    if (m.index === mathModeBling.lastIndex) {
-      mathModeBling.lastIndex++;
-    }
-  }
-
-  // console.log(mathModeBling.lastIndex);
-//  console.log(m.index);
-  // stripe off bling
-  str = m[0];                   // What about m[1]?
-  console.log("m->", m[0].slice(1, m[0].length - 2));
+  var m = str.match(mathModeBling);
+  console.log("m->", m);
 })(input);
