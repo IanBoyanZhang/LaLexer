@@ -12,6 +12,7 @@
 // ignore whitespace under math mode
 // keep whitespace under text mode
 var input = "latex symbol lexer";
+var dev = true;
 
 (function(input) {
   'use strict';
@@ -33,9 +34,18 @@ var input = "latex symbol lexer";
   //
   // lex/scan input stream
   // 
-  var mathModeBling=/(\$[^\$]*\$)/g;                // global identifier
+//  var mathModeBling=/(\$[^\$]*\$)/g;                // global identifier
+  var mathModeBling=/(\$([^\$]*)\$)/g;                // /g to avoid infinite loop
   var str = 'dfafdafd$fds3xjae$ssdsadsadsa$$1232134$21312ds$d1232134142';
 
-  var m = str.match(mathModeBling);
-  console.log("m->", m);
+  var result;
+  var tokens = [];
+  while((result = mathModeBling.exec(str)) !== null) {
+    if (result.index === mathModeBling.lastIndex) {
+      mathModeBling.lastIndex++;
+    }
+    if (dev) { console.log(result[2]); }
+      tokens.push(result[2]);
+  }
+
 })(input);
