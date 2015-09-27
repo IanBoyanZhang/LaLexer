@@ -33,10 +33,7 @@ var input = "latex symbol lexer";
   //
   // lex/scan input stream
   // 
-  var mathModeBling=/(\$[^\$]*\$)/g;
-//  var mathModeBling=/(\$([^\$])*\$)/g;
-//  var mathModeBling=/(\$([^\$])*\$)/;
-//  var str = 'sadadsaasds$\asdfdaswcoiowajifeajjiaj$dfsdfdsdsf$dsfsfdsf';
+  var mathModeBling=/(\$[^\$]*\$)/g;                // global identifier
   var str = 'dfafdafd$fds3xjae$ssdsadsadsa$$1232134$21312ds$d1232134142';
 
   var m = str.match(mathModeBling);
