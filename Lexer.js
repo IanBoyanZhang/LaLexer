@@ -3,14 +3,10 @@
 // CodeProject How to write a simple interpreter in JavaScript
 //
 // Tokens:
-// operators, numeral digits, whitespace, identifiers 
-// (which will be defined as any string of characters that does not contain operators, digits or whitespace)
-
 // Assume everything is under math mode for now
-// regex test candidate
-//
-// ignore whitespace under math mode
-// keep whitespace under text mode
+// TODO: regex test candidate
+
+// parse for each line
 var input = "latex symbol lexer";
 var dev = true;
 
@@ -45,7 +41,8 @@ var dev = true;
       mathModeBling.lastIndex++;
     }
     if (dev) { console.log(result[2]); }
-      tokens.push(result[2]);
+    tokens.push(result[2]);
   }
 
+  return tokens;
 })(input);
